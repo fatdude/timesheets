@@ -1,0 +1,5 @@
+<% if @invoice -%>
+  fade_and_remove('#invoice_<%= @invoice.id %>');
+  highlight_alt_rows('table#invoices');
+<% end -%>
+

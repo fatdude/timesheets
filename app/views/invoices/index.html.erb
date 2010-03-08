@@ -1,0 +1,63 @@
+<% if @client -%>
+<h2><%= @client.name %> invoices</h2>
+<% else -%>
+<h2>Invoices</h2>
+<% end -%>
+
+<div class="filter">
+  <% form_for @filter, :url => invoices_path, :html => { :method => :get } do |f| -%>
+    <% unless @client -%>
+      <label>Client</label> <%= f.collection_select :client_id, Client.all, :id, :name, :include_blank => true %>
+    <% else -%>
+      <%= hidden_field_tag :client_id, @client.id %>
+    <% end -%>
+    <label>From</label> <%= f.date_select :date_from, :include_blank => true %>
+    <label>To</label> <%= f.date_select :date_to, :include_blank => true %>
+    <label>Sent?</label> <%= f.select :sent, ['Any', 'Yes', 'No'] %>
+    <label>Paid?</label> <%= f.select :paid, ['Any', 'Yes', 'No'] %>
+    <%= f.submit 'Apply' %>
+  <% end -%>
+</div>
+
+<table id="invoices">
+  <tr>
+    <% unless @client -%>
+      <th>Client</th>
+    <% end -%>
+    <th>Code</th>
+    <th>Sent at</th>
+    <th>Paid at</th>
+    <th>Sub total</th>
+    <th>VAT</th>
+    <th>Total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoices.each do |invoice| %>
+  <tr id="invoice_<%= invoice.id %>" class="<%= cycle('highlight', '') %>">
+    <% unless @client -%>
+      <td class="highlight"><%= invoice.client.name %></td>
+    <% end -%>
+    <td><%= invoice.code %></td>
+    <td class="highlight"><%= invoice.sent_at.to_formatted_s(:short_ordinal) if invoice.sent_at %></td>
+    <td><%= invoice.paid_at.to_formatted_s(:short_ordinal) if invoice.paid_at %></td>
+    <td class="highlight"><%= number_to_currency invoice.total, :unit => '£' %></td>
+    <td><%= number_to_currency invoice.vat_amount, :unit => '£' %></td>
+    <td class="highlight"><strong><%= number_to_currency invoice.total_due, :unit => '£' %><strong></td>
+    <td class="control"><%= link_to 'Show', invoice, :class => 'bigpic show' %></td>
+    <td class="control highlight"><%= invoice.paid? ? raw('<span class="bigpic edit_disabled"></span>') : link_to('Edit', edit_invoice_path(invoice), :class => 'bigpic edit') %></td>
+    <td class="control"><%= invoice.sent? ? raw('<span class="bigpic delete_disabled"></span>') : button_to('Destroy', invoice, :confirm => 'Are you sure?', :method => :delete, :class => 'bigpic delete', :remote => true) %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="controls">
+  <% if @client -%>
+    <%= link_to 'New invoice', new_client_invoice_path(@client), :class => 'bigpic add', :title => 'Create a new invoice' %>
+  <% else -%>
+    <%= link_to 'New invoice', new_invoice_path, :class => 'bigpic add', :title => 'Create a new invoice' %>
+  <% end -%>
+</div>
+

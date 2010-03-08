@@ -1,0 +1,348 @@
+/* --- Defaults ---*/
+
+a {
+  outline: none;
+}
+
+/* --- Defaults END ---*/
+
+/* --- Layout --- */
+
+#wrapper {
+  width: 900px;
+  padding: 5px;
+  border: solid #ccc 1px;
+  margin: 10px auto;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+#wrapper #banner h1 a {
+  display: block;
+  text-decoration: none;
+  background: #333;
+  color: white;
+  padding: 20px 20px;
+  -moz-border-radius: 16px 16px 0 0;
+  -webkit-border-radius: 16px 16px 0 0;
+  margin: -6px -6px 10px -6px;
+}
+
+#wrapper #content #left {
+  width: 100px;
+  float: left;
+}
+
+#wrapper #content #middle {
+  padding: 10px;
+  border: solid #ccc 1px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  margin: 0 10px 10px 105px;
+  position: relative;
+}
+
+#wrapper #content #middle h2 {
+  background: #e8ede0;
+  padding: 16px;
+  -moz-border-radius: 16px 16px 0 0;
+  -webkit-border-radius: 16px 16px 0 0;
+  margin: -11px -11px 10px -11px;
+  border: solid #ccc 1px;
+}
+
+div.controls {
+  display: inline-block;
+  float: left;
+  border: solid #ccc 1px;
+  -moz-border-radius: 0 16px 0 16px;
+  -webkit-border-radius: 0 16px 0 16px;
+  margin: 10px 0 -11px -11px;
+  padding: 5px;
+  background: #e8ede0;
+}
+
+div.clear_both {
+  clear: both;
+}
+
+.js .hidden {
+  display: none;
+}
+
+/* --- Layout END --- */
+
+/* --- Navigation --- */
+
+.navigation ul {
+  list-style: none;
+  margin: 0;
+}
+
+.navigation ul li a {
+  padding: 5px 7px;
+  display: block;
+  text-decoration: none;
+  background: white;
+  border-left: solid white 3px;
+}
+
+.navigation ul li a:hover {
+  background: #f3f6ef;
+  color: #222;
+  border-left: solid #ccc 3px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+}
+
+/* --- Navigation END --- */
+
+
+/* --- Forms --- */
+
+form div.field input,
+form div.field textarea {
+  background: white url(../images/field-background.jpg) repeat-x 0 0;
+  border: solid #ccc 1px;
+  color: #333;
+  padding: 3px;
+  width: 98%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+form.button-to {
+  display: inline-block;
+}
+
+div.filter {
+  padding: 0 0 15px 0;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  border: solid #ccc 1px;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  padding: 10px;
+  background: #f3f6ef;
+}
+
+form .actions {
+  text-align: center;
+  padding: 5px 0;
+  border: solid #ccc 1px;
+  -moz-border-radius: 0 0 16px 16px;
+  -webkit-border-radius: 0 0 16px 16px;
+  margin: 0 -11px -11px -11px;
+  background: #333;
+}
+
+div.filter form,
+form.button-to,
+div.controls form {
+  width: auto;
+  margin: 0;
+  background: none;
+}
+
+div.controls form,
+form.button-to {
+  padding: 0;
+  border: none;
+}
+
+/* --- Forms END --- */
+
+
+/* --- Icons --- */
+
+.bigpic {
+  display: inline-block;
+  height: 0;
+  padding: 48px 0 0 0;
+  overflow: hidden;
+  width: 48px;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.bigpic.add {
+  background: url(../images/add.png) no-repeat 0 0;
+}
+
+.bigpic.back {
+  background: url(../images/arrow-left.png) no-repeat 0 0;
+}
+
+.bigpic.edit {
+  background: url(../images/edit.png) no-repeat 0 0;
+}
+
+.bigpic.show {
+  background: url(../images/show.png) no-repeat 0 0;
+}
+
+.bigpic.delete {
+  background: url(../images/delete.png) no-repeat 0 0;
+}
+
+.bigpic.contacts {
+  background: url(../images/contacts.png) no-repeat 0 0;
+}
+
+.bigpic.tick {
+  background: url(../images/tick.png) no-repeat 0 0;
+}
+
+.bigpic.activities {
+  background: url(../images/clock.png) no-repeat 0 0;
+}
+
+.bigpic.activity_add {
+  background: url(../images/clock_add.png) no-repeat 0 0;
+}
+
+.bigpic.edit_disabled {
+  background: url(../images/edit_disabled.png) no-repeat 0 0;
+  cursor: default;
+}
+
+.bigpic.delete_disabled {
+  background: url(../images/delete_disabled.png) no-repeat 0 0;
+  cursor: default;
+}
+
+.bigpic.invoices {
+  background: url(../images/invoice.png) no-repeat 0 0;
+}
+
+.bigpic.invoice_add {
+  background: url(../images/invoice_add.png) no-repeat 0 0;
+}
+
+.bigpic.projects {
+  background: url(../images/onebit_18.png) no-repeat 0 0;
+}
+
+.bigpic.project_add {
+  background: url(../images/project_add.png) no-repeat 0 0;
+}
+
+.bigpic.info {
+  background: url(../images/onebit_38.png) no-repeat 0 0;
+}
+
+.bigpic.waiting {
+  background: url(../images/waiting.gif) no-repeat center center !important;
+}
+
+/* --- Icons END --- */
+
+
+/* --- Tables --- */
+
+table {
+  -moz-border-radius: 10px; -webkit-border-radius: 10px;
+  border: solid #ccc 1px;
+  margin: 0;
+}
+
+table th {
+  background: #333;
+  color: white;
+  padding: 8px;
+}
+
+table td {
+  padding: 3px;
+  height: 48px;
+}
+
+table tr:last-child td:first-child {
+  -moz-border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px;
+}
+
+table tr:last-child td:last-child {
+  -moz-border-radius: 0 0 10px 0; -webkit-border-radius: 0 0 10px 0;
+}
+
+table th:first-child {
+  -moz-border-radius: 10px 0 0 0; -webkit-border-radius: 10px 0 0 0;
+}
+
+table th:last-child {
+  -moz-border-radius: 0 10px 0 0; -webkit-border-radius: 0 10px 0 0;
+}
+
+#content table tr.highlight td {
+  background: #f3f6ef;
+}
+
+#content table td.highlight {
+  background: #f3f6ef;
+}
+
+#content table tr.highlight td.highlight {
+  background: #e8ede0;
+}
+
+td.control {
+  width: 0;
+  text-align: center;
+}
+
+/* --- Tables END --- */
+
+/* --- Invoices --- */
+
+#invoice_details {
+  text-align: right;
+}
+
+#invoice_details strong {
+  font-size: 140%;
+  font-weight: normal;
+  display: inline-block;
+  width: 100px;
+}
+
+div#payment_details {
+  padding: 0 0 15px 0;
+}
+
+div#payment_details strong {
+  font-size: 140%;
+  display: inline-block;
+  padding: 0 20px 0 0;
+}
+
+#invoice_details .total {
+  padding: 10px 0 0 0;
+}
+
+#invoice_details .total strong {
+  font-weight: bold;
+}
+
+
+/* --- Invoices END --- */
+
+
+/* --- Activities --- */
+
+.activity_description {
+  background: white;
+  padding: 5px;
+  border: solid #ccc 1px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  position: absolute;
+  text-align: left;
+  margin: -48px 0 0 48px;
+}
+
+/* --- Activities END --- */
+

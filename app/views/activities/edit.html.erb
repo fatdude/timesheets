@@ -1,0 +1,9 @@
+<h2>Editing activity for <%= @client.name %></h2>
+
+<%= render 'form' %>
+
+<div class="controls">
+  <%= link_to 'Back', client_activities_path(@client), :class => 'bigpic back' %>
+  <%= link_to 'Show', @activity, :class => 'bigpic show' %>
+</div>
+

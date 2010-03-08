@@ -1,0 +1,43 @@
+<% form_for([@client, @contact]) do |f| %>
+  <%= f.error_messages %>
+
+  <% unless @client -%>
+    <div class="field">
+      <%= f.label :client_id %><br />
+      <%= f.collection_select :client_id, Client.all, :id, :name %>
+    </div>
+  <% end -%>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :main %><br />
+    <%= f.check_box :main %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :skype %><br />
+    <%= f.text_field :skype %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

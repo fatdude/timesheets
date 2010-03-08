@@ -1,0 +1,11 @@
+<% if @client -%>
+  <h2>New contact for <%= @client.name %></h2>
+<% else -%>
+  <h2>New contact</h2>
+<% end -%>
+
+<%= render 'form' %>
+<div class="controls">
+  <%= link_to 'Back', client_contacts_path(@client), :class => 'bigpic back' %>
+</div>
+

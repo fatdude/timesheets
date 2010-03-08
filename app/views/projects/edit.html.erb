@@ -1,0 +1,19 @@
+<h2>Editing project for <%= @client.name %></h2>
+
+<% form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Back', projects_path, :class => 'bigpic back' %>
+  <%= link_to 'Show', @project, :class => 'bigpic show' %>
+</div>
+

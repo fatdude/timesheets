@@ -1,0 +1,7 @@
+fade_and_remove('#activity_<%= @activity.id %>');
+highlight_alt_rows('table');
+
+<% if @invoice -%>
+  $('#invoice_details').replaceWith('<%= escape_javascript(render '/invoices/details') %>');
+<% end -%>
+

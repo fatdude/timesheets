@@ -1,0 +1,39 @@
+<h2>Contacts for <%= @client.name %></h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Main</th>
+    <th>Phone</th>
+    <th>Mobile</th>
+    <th>Skype</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contacts.each do |contact| %>
+  <tr id="contact_<%= contact.id %>" class="<%= cycle 'highlight', '' %>">
+    <td class="highlight"><%= contact.name %></td>
+    <td><%= contact.position %></td>
+    <td class="control highlight"><% if contact.main %><span class="bigpic tick">Yes</span><% end -%></td>
+    <td><%= contact.phone %></td>
+    <td class="highlight"><%= contact.mobile %></td>
+    <td><%= contact.skype %></td>
+    <td class="highlight"><%= contact.email %></td>
+    <td class="control"><%= link_to 'Show', client_contact_path(@client, contact), :class => 'bigpic show' %></td>
+    <td class="control highlight"><%= link_to 'Edit', edit_client_contact_path(@client, contact), :class => 'bigpic edit' %></td>
+    <td class="control"><%= button_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'bigpic delete' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div class="controls">
+  <%= link_to 'Back', clients_path, :class => 'bigpic back' %>
+  <%= link_to 'New contact', new_client_contact_path(@client), :class => 'bigpic add' %>
+</div>
+

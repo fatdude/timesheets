@@ -1,0 +1,62 @@
+<h2>Editing invoice</h2>
+
+<% form_for(@invoice) do |f| %>
+  <%= f.error_messages %>
+
+  <% unless @invoice.sent? -%>
+    <div class="field">
+      <%= f.label :client_id %><br />
+      <%= f.collection_select :client_id, Client.all, :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :from %><br />
+      <%= f.date_select :from %>
+    </div>
+    <div class="field">
+      <%= f.label :to %><br />
+      <%= f.date_select :to %>
+    </div>
+    <div class="field">
+      <label>Sent to client?</label>
+      <%= f.check_box :been_sent %>
+    </div>
+  <% else -%>
+    <div class="field">
+      <label>Client</label><br />
+      <%= @invoice.client.name %>
+    </div>
+    <div class="field">
+      <label>From</label><br />
+      <%= @invoice.from %>
+    </div>
+    <div class="field">
+      <label>To</label><br />
+      <%= @invoice.to %>
+    </div>
+    <div class="field">
+      <label>Sent to client on</label>
+      <%= @invoice.sent_at %>
+    </div>
+    <% unless @invoice.paid? -%>
+      <div class="field">
+        <label>Paid by client?</label>
+        <%= f.check_box :been_paid %>
+      </div>
+    <% else -%>
+      <div class="field">
+        <label>Paid by client on</label>
+        <%= @invoice.paid_at %>
+      </div>
+    <% end -%>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Back', invoices_path, :class => 'bigpic back' %>
+  <%= link_to 'Show', @invoice, :class => 'bigpic show' %>
+</div>
+

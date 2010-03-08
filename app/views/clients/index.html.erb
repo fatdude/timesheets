@@ -1,0 +1,32 @@
+<h2>Clients</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2">Projects</th>
+    <th colspan="2">Activities</th>
+    <th colspan="2">Invoices</th>
+    <th colspan="4"></th>
+  </tr>
+
+<% @clients.each do |client| %>
+  <tr id="client_<%= client.id %>" class="<%= cycle 'highlight', '' %>">
+    <td class="highlight"><%= client.name %></td>
+    <td class="control"><%= link_to 'Projects', client_projects_path(client), :class => 'bigpic projects' %></td>
+    <td class="control"><%= link_to 'Add project', new_client_project_path(client), :class => 'bigpic project_add' %></td>
+    <td class="control"><%= link_to 'Activities', client_activities_path(client), :class => 'bigpic activities' %></td>
+    <td class="control highlight"><%= link_to 'Add activity', new_client_activity_path(client), :class => 'bigpic activity_add', :title => 'Add a new activity' %></td>
+    <td class="control"><%= link_to 'Invoices', client_invoices_path(client), :class => 'bigpic invoices' %></td>
+    <td class="control highlight"><%= link_to 'Add invoice', new_client_invoice_path(client), :class => 'bigpic invoice_add' %></td>
+    <td class="control"><%= link_to 'Contacts', client_contacts_path(client), :class => 'bigpic contacts' %></td>
+    <td class="control highlight"><%= link_to 'Show', client, :class => 'bigpic show' %></td>
+    <td class="control"><%= link_to 'Edit', edit_client_path(client), :class => 'bigpic edit', :title => "Edit client" %></td>
+    <td class="control highlight"><%= button_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'bigpic delete' %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="controls">
+  <%= link_to 'New client', new_client_path, :class => "bigpic add" %>
+</div>
+

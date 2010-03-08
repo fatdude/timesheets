@@ -1,0 +1,14 @@
+<h2>Invoice <%= @invoice.code %> for <%= @invoice.client.name %></h2>
+
+<%= render 'payment_details' %>
+<%= render 'activities' %>
+<%= render 'details' %>
+
+<div class="controls">
+  <%= link_to 'Back', invoices_path, :class => 'bigpic back' %>
+  <span id="controls">
+    <%= link_to('Edit', edit_invoice_path(@invoice), :class => 'bigpic edit') unless @invoice.sent? %>
+    <%= button_to('Destroy', @invoice, :confirm => 'Are you sure?', :method => :delete, :class => 'bigpic delete', :remote => true) unless @invoice.sent? %>
+  </span>
+</div>
+

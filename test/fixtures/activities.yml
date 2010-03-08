@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  client: 
+  rate: 9.99
+  description: MyText
+  started: 2010-02-24 01:05:30
+  finished: 2010-02-24 01:05:30
+  hours: 1.5
+
+two:
+  client: 
+  rate: 9.99
+  description: MyText
+  started: 2010-02-24 01:05:30
+  finished: 2010-02-24 01:05:30
+  hours: 1.5

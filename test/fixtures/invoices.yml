@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  client: 
+  recieved_at: 2010-03-05 00:16:18
+  sent_at: 2010-03-05 00:16:18
+  title: MyString
+
+two:
+  client: 
+  recieved_at: 2010-03-05 00:16:18
+  sent_at: 2010-03-05 00:16:18
+  title: MyString

@@ -1,0 +1,55 @@
+<p>
+  <b>Name:</b>
+  <%= @client.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @client.fax %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @client.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @client.website %>
+</p>
+
+<p>
+  <b>Line 1:</b>
+  <%= @client.line_1 %>
+</p>
+
+<p>
+  <b>Line 2:</b>
+  <%= @client.line_2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @client.city %>
+</p>
+
+<p>
+  <b>County:</b>
+  <%= @client.county %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @client.postcode %>
+</p>
+
+<div class="controls">
+  <%= link_to 'Back', clients_path, :class => 'bigpic back' %>
+  <%= link_to 'Edit', edit_client_path(@client), :class => 'bigpic edit' %>
+</div>
+

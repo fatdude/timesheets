@@ -1,0 +1,29 @@
+<% if @client -%>
+  <h2><%= @client.name %> projects</h2>
+<% else -%>
+  <h2>All projects</h2>
+<% end -%>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th colspan="3"></th>
+  </tr>
+  <% @projects.each do |project| %>
+    <tr class="<%= cycle 'highlight', '' %>">
+      <td class="highlight"><%= project.title %></td>
+      <td class="control"><%= link_to 'Show', project, :class => 'bigpic show' %></td>
+      <td class="control highlight"><%= link_to 'Edit', edit_project_path(project), :class => 'bigpic edit' %></td>
+      <td class="control"><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class => 'bigpic delete' %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="controls">
+  <% if @client -%>
+    <%= link_to 'New activity', new_client_project_path(@client), :class => 'bigpic add', 'data-display' => 'popup' %>
+  <% else -%>
+    <%= link_to 'New activity', new_project_path, :class => 'bigpic add', 'data-display' => 'popup' %>
+  <% end -%>
+</div>
+
