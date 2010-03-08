@@ -1,0 +1,16 @@
+h1. Timesheets
+
+Timesheets is something I knocked up over a few days as a way of playing with some of the new features
+introduced in the beta of Rails 3.0.
+
+As a freelancer I need something to keep track of what I'm doing, and for who, and yes there are
+lots of very good applications that do that already, but where's the fun in that? So what you have
+is a simple application that you can add clients to (defining hourly rates etc), add contacts for that client,
+etc.
+
+Invoices are created by choosing a client and a timeframe, any uninvoiced activities in that time period for the client
+are added. An activity will only be added to a single invoice. Once an activity is added to an invoice, it can still be edited, deleted, removed from the invoide until the invoice is marked as sent. Once an
+invoice has been marked as sent it's details can't be edited (other than to mark it as paid), and it can't be deleted.
+
+All the icons are taken from the following site "http://www.icojoy.com/articles/46/":http://www.icojoy.com/articles/46/
+
