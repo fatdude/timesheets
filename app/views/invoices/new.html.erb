@@ -4,7 +4,6 @@
   <h2>New invoice</h2>
 <% end -%>
 
-
 <% form_for([@client, @invoice]) do |f| %>
   <%= f.error_messages %>
 
@@ -30,6 +29,11 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<div id="results" class="hidden">
+
+</div>
+
 
 <div class="controls">
   <%= link_to 'Back', invoices_path, :class => 'bigpic back' %>

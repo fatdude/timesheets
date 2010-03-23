@@ -19,6 +19,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @contact }
+      format.js { render :format => :html, :layout => false }
     end
   end
 
@@ -32,6 +33,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @contact }
+      format.js { render :format => :html, :layout => false }
     end
   end
 
@@ -43,6 +45,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @contact }
+      format.js { render :format => :html, :layout => false }
     end
   end
 
@@ -56,9 +59,11 @@ class ContactsController < ApplicationController
       if @contact.save
         format.html { redirect_to(client_contacts_path(@client), :notice => 'Contact was successfully created.') }
         format.xml  { render :xml => @contact, :status => :created, :location => @contact }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -66,15 +71,18 @@ class ContactsController < ApplicationController
   # PUT /contacts/1
   # PUT /contacts/1.xml
   def update
-    @contact = Contact.find(params[:id])
+    @contact = Contact.includes(:client).find(params[:id])
+    @client = @contact.client
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
         format.html { redirect_to(@contact, :notice => 'Contact was successfully updated.') }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @contact.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end

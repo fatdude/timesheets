@@ -3,7 +3,7 @@ class Invoice < ActiveRecord::Base
   before_update :update_dates
   before_update :update_activities
   after_create :update_code
-  after_create :link_activities
+  after_save :link_activities
   before_create :set_vat_and_flat_rate
 
   # Relationships

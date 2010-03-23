@@ -1,6 +1,6 @@
 class ActivityFilter
   # Accessors
-  attr_accessor :client_id, :date_from, :date_to
+  attr_accessor :client_id, :date_from, :date_to, :id
 
   # Methods
   def initialize(data={})

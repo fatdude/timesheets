@@ -12,17 +12,7 @@ $(document).ready(function(){
 
   $('body').addClass('js');
 
-//  $('a[rel*=facebox]').live('', function(){
-//    $(this).facebox();
-//  });
-
-//  $('a[data-display=popup]').fancybox({
-//    autoScale: false,
-//    autoDimensions: true,
-//    showCloseButton: true,
-//    hideOnOverlayClick: false,
-//    transitionIn: 'elastic'
-//  });
+  $('a[data-display=popup]').facebox();
 
   $('a.bigpic').live('click', function(){
     $(this).addClass('waiting');

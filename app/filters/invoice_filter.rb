@@ -1,6 +1,6 @@
 class InvoiceFilter
   # Accessors
-  attr_accessor :client_id, :date_from, :date_to, :sent, :paid
+  attr_accessor :client_id, :date_from, :date_to, :sent, :paid, :id
 
   # Methods
   def initialize(data={})

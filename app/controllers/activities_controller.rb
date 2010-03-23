@@ -36,9 +36,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.xml  { render :xml => @activity }
-      format.js
+      format.js { render :format => :html, :layout => false }
     end
   end
 
@@ -50,10 +50,12 @@ class ActivitiesController < ApplicationController
     unless @activity.sent?
       respond_to do |format|
         format.html
+        format.js { render :format => :html, :layout => false }
       end
     else
       respond_to do |format|
         format.html { redirect_to @activity, :error => "This activity is part of an invoice that has been sent" }
+        format.js { render :format => :html, :layout => false }
       end
     end
   end
@@ -72,9 +74,11 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to(client_activities_path(@activity.client_id), :notice => 'Activity was successfully created.') }
         format.xml  { render :xml => @activity, :status => :created, :location => @activity }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -83,20 +87,24 @@ class ActivitiesController < ApplicationController
   # PUT /activities/1.xml
   def update
     @activity = Activity.includes([:client, :invoice]).find(params[:id])
+    @client = @activity.client
 
     unless @activity.sent?
       respond_to do |format|
         if @activity.update_attributes(params[:activity])
           format.html { redirect_to(@activity, :notice => 'Activity was successfully updated.') }
           format.xml  { head :ok }
+          format.js
         else
           format.html { render :action => "edit" }
           format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
+          format.js
         end
       end
     else
       respond_to do |format|
         format.html { redirect_to @activity, :error => "This activity is part of an invoice that has been sent" }
+        format.js
       end
     end
   end

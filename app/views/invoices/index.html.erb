@@ -47,7 +47,7 @@
     <td><%= number_to_currency invoice.vat_amount, :unit => '£' %></td>
     <td class="highlight"><strong><%= number_to_currency invoice.total_due, :unit => '£' %><strong></td>
     <td class="control"><%= link_to 'Show', invoice, :class => 'bigpic show' %></td>
-    <td class="control highlight"><%= invoice.paid? ? raw('<span class="bigpic edit_disabled"></span>') : link_to('Edit', edit_invoice_path(invoice), :class => 'bigpic edit') %></td>
+    <td class="control highlight"><%= invoice.paid? ? raw('<span class="bigpic edit_disabled"></span>') : link_to('Edit', edit_invoice_path(invoice), :class => 'bigpic edit', 'data-display' => 'popup') %></td>
     <td class="control"><%= invoice.sent? ? raw('<span class="bigpic delete_disabled"></span>') : button_to('Destroy', invoice, :confirm => 'Are you sure?', :method => :delete, :class => 'bigpic delete', :remote => true) %></td>
   </tr>
 <% end %>
@@ -55,9 +55,9 @@
 
 <div class="controls">
   <% if @client -%>
-    <%= link_to 'New invoice', new_client_invoice_path(@client), :class => 'bigpic add', :title => 'Create a new invoice' %>
+    <%= link_to 'New invoice', new_client_invoice_path(@client), :class => 'bigpic add', :title => 'Create a new invoice', 'data-display' => 'popup' %>
   <% else -%>
-    <%= link_to 'New invoice', new_invoice_path, :class => 'bigpic add', :title => 'Create a new invoice' %>
+    <%= link_to 'New invoice', new_invoice_path, :class => 'bigpic add', :title => 'Create a new invoice', 'data-display' => 'popup' %>
   <% end -%>
 </div>
 

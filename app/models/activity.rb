@@ -9,7 +9,8 @@ class Activity < ActiveRecord::Base
   belongs_to :project
 
   # Validations
-  validates_numericality_of :hours, :greater_than => 0
+  validates_numericality_of :hours, :greater_than => 0, :message => "needs to be specified as a number"
+  validates_presence_of :description
 
   # Named Scopes
   scope :by_client, lambda { |id| id.blank? ? {} : where(:client_id => id) }
@@ -32,14 +33,6 @@ class Activity < ActiveRecord::Base
     return false unless self.invoiced?
     self.invoice.sent?
   end
-
-#  def hours
-#    if self[:hours].blank?
-#      self.hours = (self.finished - self.started)/60/60
-#    else
-#      self[:hours]
-#    end
-#  end
 
   private
 

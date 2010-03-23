@@ -17,43 +17,26 @@
   <% end -%>
 </div>
 
-<table>
-  <tr>
-    <% unless @client -%>
-      <th>Client</th>
-    <% end -%>
-    <th>Date</th>
-    <th></th>
-    <th>Rate</th>
-    <th>Hours</th>
-    <th>Total</th>
-    <th>Invoice</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @activities.each do |activity| %>
-  <tr id="activity_<%= activity.id %>" class="<%= cycle 'highlight', '' %>">
-    <% unless @client -%>
-      <td class="highlight"><%= link_to activity.client.name, client_activities_path(activity.client) %></td>
-    <% end -%>
-    <td><%= activity.date.to_formatted_s(:short_ordinal) %></td>
-    <td class="control highlight">
-      <span class="bigpic info"></span>
-      <% unless activity.description.blank? -%>
-        <div class="activity_description hidden"><%= activity.description %></div>
+<table id="activities">
+  <thead>
+    <tr>
+      <% unless @client -%>
+        <th>Client</th>
       <% end -%>
-    </td>
-    <td><%= number_to_currency activity.rate, :unit => '£' %></td>
-    <td class="highlight"><%= activity.hours %></td>
-    <td><%= number_to_currency activity.total, :unit => '£' %></td>
-    <td class="highlight"><%= link_to(activity.invoice.code, activity.invoice) if activity.invoiced? %></td>
-    <td class="control"><%= link_to 'Show', activity, :class => 'bigpic show' %></td>
-    <td class="control highlight"><%= activity.sent? ? raw('<span class="bigpic edit_disabled"></span>') : link_to('Edit', edit_activity_path(activity), :class => 'bigpic edit') %></td>
-    <td class="control"><%= activity.sent? ? raw('<span class="bigpic delete_disabled"></span>') : button_to('Destroy', activity, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'bigpic delete') %></td>
-  </tr>
-<% end %>
+      <th>Date</th>
+      <th></th>
+      <th>Rate</th>
+      <th>Hours</th>
+      <th>Total</th>
+      <th>Invoice</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @activities %>
+  </tbody>
 </table>
 
 <div class="controls">

@@ -37,6 +37,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @invoice }
+      format.js { render :format => :html, :layout => false }
     end
   end
 
@@ -47,6 +48,7 @@ class InvoicesController < ApplicationController
     if @invoice
       respond_to do |format|
         format.html
+        format.js { render :format => :html, :layout => false }
       end
     else
       respond_to do |format|

@@ -1,4 +1,4 @@
-fade_and_remove('#activity_<%= @activity.id %>');
+fade_and_remove('tr[data-id=<%= @activity.id %>]');
 highlight_alt_rows('table');
 
 <% if @invoice -%>

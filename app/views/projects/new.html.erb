@@ -4,23 +4,7 @@
 <h2>New project</h2>
 <% end -%>
 
-<% form_for([@client, @project]) do |f| %>
-  <%= f.error_messages %>
-
-  <% unless @client -%>
-    <div class="field">
-      <%= f.label :client_id %><br />
-      <%= f.collection_select :client_id, Client.all, :id, :name %>
-    </div>
-  <% end -%>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <div class="controls">
   <% if @client -%>

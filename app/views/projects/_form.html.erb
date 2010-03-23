@@ -1,10 +1,6 @@
-<% form_for(@project) do |f| %>
+<% form_for [@client, @project], :remote => true do |f| %>
   <%= f.error_messages %>
 
-  <div class="field">
-    <%= f.label :client %><br />
-    <%= f.text_field :client %>
-  </div>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

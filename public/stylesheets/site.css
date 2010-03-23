@@ -111,6 +111,14 @@ form div.field textarea {
   -webkit-border-radius: 5px;
 }
 
+form div.field textarea {
+  height: 12em;
+}
+
+form div.field input[type=checkbox] {
+  width: auto;
+}
+
 form.button-to {
   display: inline-block;
 }
@@ -154,6 +162,24 @@ form.button-to {
 }
 
 /* --- Forms END --- */
+
+/*--- Facebox --- */
+
+#facebox .content form {
+  width: auto;
+}
+
+#facebox .content form .field {
+  width: 396px;
+
+}
+
+#facebox .content .controls {
+  display: none;
+}
+
+
+/*--- Facebox END --- */
 
 
 /* --- Icons --- */
@@ -244,36 +270,36 @@ form.button-to {
 
 /* --- Tables --- */
 
-table {
+#content table {
   -moz-border-radius: 10px; -webkit-border-radius: 10px;
   border: solid #ccc 1px;
   margin: 0;
 }
 
-table th {
+#content table th {
   background: #333;
   color: white;
   padding: 8px;
 }
 
-table td {
+#content table td {
   padding: 3px;
   height: 48px;
 }
 
-table tr:last-child td:first-child {
+#content table tr:last-child td:first-child {
   -moz-border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px;
 }
 
-table tr:last-child td:last-child {
+#content table tr:last-child td:last-child {
   -moz-border-radius: 0 0 10px 0; -webkit-border-radius: 0 0 10px 0;
 }
 
-table th:first-child {
+#content table th:first-child {
   -moz-border-radius: 10px 0 0 0; -webkit-border-radius: 10px 0 0 0;
 }
 
-table th:last-child {
+#content table th:last-child {
   -moz-border-radius: 0 10px 0 0; -webkit-border-radius: 0 10px 0 0;
 }
 
