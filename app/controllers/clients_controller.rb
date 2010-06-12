@@ -18,6 +18,13 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }
+      format.pdf do
+        render :pdf => 'test',
+               :layout => 'pdf.html',
+               :show_as_html => !params[:debug].blank?,
+               :lowquality => false,
+               :template => '/clients/show.html'
+      end
     end
   end
 
