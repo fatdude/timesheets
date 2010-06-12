@@ -41,6 +41,7 @@ module Timesheet3
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
+    config.secret_token = '4ea05accbd2f9ed0f6f9f27c2076ae664e2cef5aa094d41288b5ac39d05fb49fff92d76c606bc0c0dc24d152034b9322bca8d7c51eba13116acd3fef30f74008'
   end
 end
 

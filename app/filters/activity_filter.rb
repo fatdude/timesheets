@@ -1,4 +1,4 @@
-class ActivityFilter
+class ActivityFilter < Filter
   # Accessors
   attr_accessor :client_id, :date_from, :date_to, :id
 
@@ -15,18 +15,6 @@ class ActivityFilter
     rescue
       @date_to = nil
     end
-  end
-
-  def self.model_name
-    ActivityFilter
-  end
-
-  def self.plural
-    'activity_filters'
-  end
-
-  def self.singular
-    'activity_filter'
   end
 end
 
