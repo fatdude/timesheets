@@ -119,10 +119,6 @@ form div.field input[type=checkbox] {
   width: auto;
 }
 
-form.button-to {
-  display: inline-block;
-}
-
 div.filter {
   padding: 0 0 15px 0;
 }
@@ -148,18 +144,49 @@ form .actions {
 }
 
 div.filter form,
-form.button-to,
 div.controls form {
   width: auto;
   margin: 0;
   background: none;
 }
 
+form.button_to {
+    padding: 0 !important;
+    height: 48px;
+    margin: 0 !important;
+    background: none;
+    display: inline;
+    width: 48px;
+    font-size: 0;
+}
+
+form.button_to * {
+    margin: 0 !important;
+}
+
+form.button_to div {s
+    padding: 0;
+    height: 48px;
+    width: 48px;
+}
+/*
 div.controls form,
-form.button-to {
-  padding: 0;
+form.button_to {
+  padding: 0 !important;
   border: none;
 }
+
+form.button_to * {
+    margin: 0 !important;
+}
+
+form.button_to {
+  display: inline-block;
+}
+
+form.button_to * {
+  display: inline-block;
+}*/
 
 /* --- Forms END --- */
 

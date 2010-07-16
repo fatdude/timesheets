@@ -12,7 +12,7 @@
   <% @invoice.activities.each do |activity| %>
     <tr data-id="<%= activity.id %>" class="<%= cycle 'highlight', '' %>">
       <td class="highlight"><%= activity.date.to_formatted_s(:short_ordinal) %></td>
-      <td><%= truncate activity.description, :length => 100 %></td>
+      <td><%= activity.description %></td>
       <td class="highlight"><%= number_to_currency activity.rate, :unit => '£' %></td>
       <td><%= activity.hours %></td>
       <td class="highlight"><%= number_to_currency activity.total, :unit => '£' %></td>
