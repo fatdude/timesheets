@@ -1,5 +1,5 @@
 <%= form_for [@client, @contact], :remote => true do |f| %>
-  <%= render 'shared/error_messages', :target => @activity %>
+  <%= render 'shared/error_messages', :target => @contact %>
   <% unless @client -%>
     <div class="field">
       <%= f.label :client_id %><br />
