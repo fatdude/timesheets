@@ -1,8 +1,7 @@
 <h2>Settings</h2>
 
-<% form_for(@setting) do |f| %>
-  <%= f.error_messages %>
-
+<%= form_for(@setting) do |f| %>
+  <%= render 'shared/error_messages', :target => @activity %>
   <div class="field">
     <%= f.label :vat_percent %><br />
     <%= f.text_field :vat_percent %>

@@ -1,6 +1,5 @@
-<% form_for(@invoice) do |f| %>
-  <%= f.error_messages %>
-
+<%= form_for(@invoice) do |f| %>
+  <%= render 'shared/error_messages', :target => @activity %>
   <div class="field">
     <%= f.label :client_id %><br />
     <%= f.collection_select :client_id, Client.all, :id, :name %>
