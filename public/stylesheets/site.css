@@ -1,4 +1,4 @@
-/* --- Defaults ---*/
+/* --- Defaults --- */
 
 a {
   outline: none;
@@ -119,10 +119,6 @@ form div.field input[type=checkbox] {
   width: auto;
 }
 
-form.button-to {
-  display: inline-block;
-}
-
 div.filter {
   padding: 0 0 15px 0;
 }
@@ -148,7 +144,7 @@ form .actions {
 }
 
 div.filter form,
-form.button-to,
+form.button_to,
 div.controls form {
   width: auto;
   margin: 0;
@@ -156,7 +152,7 @@ div.controls form {
 }
 
 div.controls form,
-form.button-to {
+form.button_to {
   padding: 0;
   border: none;
 }
@@ -184,15 +180,27 @@ form.button-to {
 
 /* --- Icons --- */
 
+form.button_to {
+  display: inline;
+}
+
+form.button_to div {
+  padding:0;
+  border: none;
+  height: 48px;
+  margin: 0;
+}
+
 .bigpic {
   display: inline-block;
   height: 0;
   padding: 48px 0 0 0;
   overflow: hidden;
-  width: 48px;
   border: none;
+  width: 48px;
   margin: 0;
   cursor: pointer;
+  
 }
 
 .bigpic.add {
