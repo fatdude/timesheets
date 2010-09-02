@@ -1,4 +1,5 @@
-class InvoiceFilter
+class InvoiceFilter < Filter
+  
   # Accessors
   attr_accessor :client_id, :date_from, :date_to, :sent, :paid, :id
 
@@ -17,18 +18,6 @@ class InvoiceFilter
     end
     @sent = data.nil? ? 'Any' : data[:sent]
     @paid = data.nil? ? 'Any' : data[:paid]
-  end
-
-  def self.model_name
-    InvoiceFilter
-  end
-
-  def self.plural
-    'invoice_filters'
-  end
-
-  def self.singular
-    'invoice_filter'
   end
 end
 

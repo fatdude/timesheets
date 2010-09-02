@@ -144,17 +144,10 @@ form .actions {
 }
 
 div.filter form,
-form.button_to,
 div.controls form {
   width: auto;
   margin: 0;
   background: none;
-}
-
-div.controls form,
-form.button_to {
-  padding: 0;
-  border: none;
 }
 
 /* --- Forms END --- */
@@ -182,10 +175,12 @@ form.button_to {
 
 form.button_to {
   display: inline;
+  padding: 0;
+  border: none;
 }
 
 form.button_to div {
-  padding:0;
+  padding: 0;
   border: none;
   height: 48px;
   margin: 0;

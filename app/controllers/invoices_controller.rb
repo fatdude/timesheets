@@ -24,7 +24,13 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @invoice }
+      format.xml  { render :xml => @invoice }      
+      format.pdf do
+        render :pdf => 'test',
+               :layout => 'pdf.html',
+               :show_as_html => !params[:debug].blank?,
+               :lowquality => false
+      end
     end
   end
 

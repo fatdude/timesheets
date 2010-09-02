@@ -2,7 +2,7 @@
   <p>You must create a project for <%= @client.name %> before continuing</p>
 <% else -%>
   <% form_for [@client, @activity], :remote => true do |f| %>
-    <%= f.error_messages %>
+    <%= render 'shared/error_messages', :target => @activity %>
 
     <div class="field">
       <%= f.label :project_id %><br/>
