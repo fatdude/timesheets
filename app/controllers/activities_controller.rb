@@ -87,7 +87,7 @@ class ActivitiesController < ApplicationController
   # PUT /activities/1.xml
   def update
     @activity = Activity.includes([:client, :invoice]).find(params[:id])
-    @client = @activity.client
+    #@client = @activity.client
 
     unless @activity.sent?
       respond_to do |format|
@@ -117,8 +117,7 @@ class ActivitiesController < ApplicationController
 
     unless @activity.sent?
       if @invoice
-        @activity.update_attribute :invoice_id, nil
-        @invoice.remove_activity_total @activity
+        @activity.update_attribute(:invoice_id, nil)
       else
         @activity.destroy
       end
@@ -130,7 +129,7 @@ class ActivitiesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to(@invoice || activities_url, :error => "This activity is part of an invoice that has been sent") }
+        format.html { redirect_to(@invoice || activities_url, :flash => { :error => "This activity is part of an invoice that has been sent" }) }
         format.xml  { head :ok }
         format.js
       end

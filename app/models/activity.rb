@@ -1,4 +1,7 @@
 class Activity < ActiveRecord::Base
+  default_scope order('date desc')
+  
+  # Filters
   before_create :set_rate
   before_save :set_hours
   after_destroy :update_invoice

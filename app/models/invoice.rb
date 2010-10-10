@@ -1,4 +1,6 @@
 class Invoice < ActiveRecord::Base
+  default_scope includes(:activities)
+  
   # Filters
   before_update :update_dates
   before_update :update_activities
@@ -56,9 +58,9 @@ class Invoice < ActiveRecord::Base
   def total_due
     self.total * self.vat
   end
-
-  def remove_activity_total activity
-    self.update_attribute :total, self.total - activity.total
+  
+  def total
+    self.activities.all.sum(&:total)
   end
 
   private
@@ -73,16 +75,6 @@ class Invoice < ActiveRecord::Base
   def link_activities
     activities = Activity.uninvoiced.between(self.from, self.to).where(:client_id => self.client_id)
     Activity.update_all({:invoice_id => self.id}, ["id in (?)", activities.map(&:id)])
-    update_totals activities
-  end
-
-  def update_totals activities=[]
-    if activities.empty?
-      self.total = 0.0
-    else
-      vals = activities.collect { |activity| activity.total }
-      self.total = eval(vals.join('+'))
-    end
   end
 
   def update_code
