@@ -1,0 +1,28 @@
+%h2 Clients
+%p
+  = link_to('New client', new_client_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Name
+      %th Rate
+      %th Code
+      %th
+      %th
+      %th
+  %tbody
+    - @clients.each do |client|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = client.name
+        %td
+          = client.rate
+        %td
+          = client.code
+        %td.has_icon
+          = link_to('Show', client, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_client_path(client), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', client, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')

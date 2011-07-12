@@ -1,6 +1,0 @@
-<tr class="<%= cycle 'highlight', '' %>" data-id="<%= project.id %>">
-  <td class="highlight"><%= project.title %></td>
-  <td class="control highlight"><%= link_to 'Edit', edit_project_path(project), :class => 'bigpic edit', 'data-display' => 'popup' %></td>
-  <td class="control"><%= button_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class => 'bigpic delete', :remote => true %></td>
-</tr>
-

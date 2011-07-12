@@ -1,0 +1,132 @@
+@import '../settings';
+@import 'compass';
+@import 'blueprint';
+
+form.simple_form {
+  @include blueprint-form;
+  width: $form_width;
+  @include blueprint-form-sizes($input_width, $textarea_width);
+  clear: left;
+  
+  .actions {
+    padding: 10px 0 0 0;
+    text-align: right;
+  }
+  
+  label {
+    
+    abbr {
+      color: red;
+    }
+  }
+  
+  input {
+  
+    &.numeric, &.tel, &.url {
+      margin: 0.5em 0;      
+      background-color: white;      
+      padding: 5px;
+      @extend input.text;
+    }
+    
+    &.numeric, &.tel, &.url, &.string, &.password {
+      @include border-radius;
+    }
+    
+    &.boolean {
+      vertical-align: middle;
+      margin-left: 0;
+    }
+    
+    &.check_boxes {
+      vertical-align: middle;
+    }
+  }
+  
+  .input {
+  
+    label {
+      display: block;
+    }
+    
+    textarea {
+      @include border-radius();
+    }
+
+    .hint {
+      @include inline-block;
+      width: 50%;
+      margin-bottom: 0.5em;
+      font-style: italic;
+    }
+    
+    .error {
+      @include inline-block;
+      text-align: right;
+      width: 50%;
+      color: $error_border;
+      font-weight: bold;
+      float: right;
+    }    
+  
+    &.select, &.date, &.datetime {
+    
+      label {
+        @include inline-block;
+        padding-right: 5px;
+      }
+      
+      .hint {
+        display: block;
+      }
+    }
+    
+    &.boolean {
+      padding-bottom: .5em;
+      
+      label {
+        vertical-align: middle;
+        display: inline;
+      }
+      
+      .hint {
+        display: block;
+        margin-top: .5em;
+      }      
+    }
+    
+    &.check_boxes {
+      margin-bottom: 0.5em;
+      
+      label.collection_check_boxes {
+        @include inline-block;
+        vertical-align: middle;
+      }
+      
+      .hint {
+        display: block;
+        margin-top: .5em;
+      }         
+    }
+    
+    &.file {
+      margin-bottom: .5em;
+      
+      .hint {
+        display: block;
+        margin-top: .5em;
+      }         
+    }
+    
+    &.numeric {
+      @extend .input.text;
+    }
+    
+    &.field_with_errors {
+      
+      input, textarea {
+        border-color: $error_border;
+      }      
+    }
+  }
+}

@@ -1,0 +1,46 @@
+%h2 Invoices
+%p
+  = link_to('New invoice', new_invoice_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Client
+      %th Paid at
+      %th Sent at
+      %th From
+      %th To
+      %th Total
+      %th Vat
+      %th Flat rate
+      %th Code
+      %th
+      %th
+      %th
+  %tbody
+    - @invoices.each do |invoice|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = invoice.client
+        %td
+          = invoice.paid_at
+        %td
+          = invoice.sent_at
+        %td
+          = invoice.from
+        %td
+          = invoice.to
+        %td
+          = invoice.total
+        %td
+          = invoice.vat
+        %td
+          = invoice.flat_rate
+        %td
+          = invoice.code
+        %td.has_icon
+          = link_to('Show', invoice, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_invoice_path(invoice), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', invoice, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')

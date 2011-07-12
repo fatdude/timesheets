@@ -1,0 +1,11 @@
+= simple_form_for(@configuration) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :vat_percent
+    = f.input :vat
+    = f.input :flat_rate_percent
+    = f.input :flat_rate
+
+  .actions
+    = f.button :submit

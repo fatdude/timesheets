@@ -1,18 +1,15 @@
-Timesheet3::Application.routes.draw do |map|
+Timesheets::Application.routes.draw do
+  resource :configuration
+
   resources :projects
-  resources :settings
+
   resources :invoices
-  resources :activities
+
   resources :contacts
+
   resources :clients
 
-  resources :clients do
-    resources :contacts, :activities, :invoices, :projects
-  end
-
-  resources :invoices do
-    resources :activities
-  end
+  resources :activities
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -31,12 +28,12 @@ Timesheet3::Application.routes.draw do |map|
   # Sample resource route with options:
   #   resources :products do
   #     member do
-  #       get :short
-  #       post :toggle
+  #       get 'short'
+  #       post 'toggle'
   #     end
   #
   #     collection do
-  #       get :sold
+  #       get 'sold'
   #     end
   #   end
 
@@ -50,7 +47,7 @@ Timesheet3::Application.routes.draw do |map|
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get :recent, :on => :collection
+  #       get 'recent', :on => :collection
   #     end
   #   end
 
@@ -63,7 +60,7 @@ Timesheet3::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "clients#index"
+  root :to => 'site#index'
 
   # See how all your routes lay out with "rake routes"
 
@@ -71,4 +68,3 @@ Timesheet3::Application.routes.draw do |map|
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
-

@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
+  setup do
+    @project = projects(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -14,30 +18,30 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, :project => projects(:one).attributes
+      post :create, project: @project.attributes
     end
 
     assert_redirected_to project_path(assigns(:project))
   end
 
   test "should show project" do
-    get :show, :id => projects(:one).to_param
+    get :show, id: @project.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => projects(:one).to_param
+    get :edit, id: @project.to_param
     assert_response :success
   end
 
   test "should update project" do
-    put :update, :id => projects(:one).to_param, :project => projects(:one).attributes
+    put :update, id: @project.to_param, project: @project.attributes
     assert_redirected_to project_path(assigns(:project))
   end
 
   test "should destroy project" do
     assert_difference('Project.count', -1) do
-      delete :destroy, :id => projects(:one).to_param
+      delete :destroy, id: @project.to_param
     end
 
     assert_redirected_to projects_path

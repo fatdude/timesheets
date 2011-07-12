@@ -1,4 +1,4 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
   name: MyString
@@ -6,11 +6,13 @@ one:
   fax: MyString
   email: MyString
   website: MyString
-  line_1: MyString
-  line_2: MyString
+  address1: MyString
+  address2: MyString
   city: MyString
   county: MyString
   postcode: MyString
+  rate: 9.99
+  code: MyString
 
 two:
   name: MyString
@@ -18,8 +20,10 @@ two:
   fax: MyString
   email: MyString
   website: MyString
-  line_1: MyString
-  line_2: MyString
+  address1: MyString
+  address2: MyString
   city: MyString
   county: MyString
   postcode: MyString
+  rate: 9.99
+  code: MyString

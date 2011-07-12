@@ -1,9 +1,11 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
   client: 
   title: MyString
+  description: MyText
 
 two:
   client: 
   title: MyString
+  description: MyText

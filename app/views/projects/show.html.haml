@@ -1,0 +1,23 @@
+%h2 Project details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Client
+    .value
+      = @project.client
+  .attribute
+    %p.name
+      %strong Title
+    .value
+      = @project.title
+  .attribute
+    %p.name
+      %strong Description
+    .value
+      = @project.description
+
+%p.controls
+  = link_to('Edit', edit_project_path(@project), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @project, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

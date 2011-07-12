@@ -3,6 +3,7 @@
 #
 # Examples:
 #
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
-Setting.create(:vat_percent => 17.5, :flat_rate_percent => 12)
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Configuration.create(:vat_percent => 20.0, :vat => 1.2, :flat_rate_percent => 14.5, :flat_rate => 1.145)

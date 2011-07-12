@@ -1,0 +1,48 @@
+%h2 Contact details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Name
+    .value
+      = @contact.name
+  .attribute
+    %p.name
+      %strong Position
+    .value
+      = @contact.position
+  .attribute
+    %p.name
+      %strong Main
+    .value
+      = @contact.main
+  .attribute
+    %p.name
+      %strong Phone
+    .value
+      = @contact.phone
+  .attribute
+    %p.name
+      %strong Mobile
+    .value
+      = @contact.mobile
+  .attribute
+    %p.name
+      %strong Skype
+    .value
+      = @contact.skype
+  .attribute
+    %p.name
+      %strong Email
+    .value
+      = @contact.email
+  .attribute
+    %p.name
+      %strong Client
+    .value
+      = @contact.client
+
+%p.controls
+  = link_to('Edit', edit_contact_path(@contact), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @contact, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

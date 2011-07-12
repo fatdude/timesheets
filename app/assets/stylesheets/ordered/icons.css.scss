@@ -1,0 +1,118 @@
+@import 'compass';
+
+.icon {
+  @include inline-block;
+  height: 16px;
+  width: 16px;
+  @include replace-text('/assets/admin/ruby.png');
+  vertical-align: middle;
+  cursor: pointer;
+  background: {
+    repeat: no-repeat;
+    position: center center;
+  }
+}
+
+input[type=submit], button {
+
+  &.icon {
+    border: none;
+  }
+}
+
+.icon_left {
+  padding-left: 20px;
+  @include min-height(16px);
+  @include inline-block;
+  background: {
+    repeat: no-repeat;
+    position: left center;
+  }
+}
+
+.icon_right {
+  padding-right: 20px;  
+  @include min-height(16px);
+  @include inline-block;
+  background: {
+    repeat: no-repeat;
+    position: right center;
+  }
+}
+
+.icon, .icon_left, .icon_right {
+
+  &.edit {
+    background-image: url(/assets/admin/pencil.png);
+  }
+  
+  &.add {
+    background-image: url(/assets/admin/add.png);
+  }
+
+  &.delete {
+    background-image: url(/assets/admin/delete.png);
+  }
+
+  &.show {
+    background-image: url(/assets/admin/zoom.png);
+  }
+
+  &.yes {
+    background-image: url(/assets/admin/tick.png);
+    cursor: default;
+  }
+
+  &.no {
+    background-image: url(/assets/admin/cross.png);
+    cursor: default;
+  }
+
+  &.asc {
+    background-image: url(/assets/admin/arrow_up.png);
+  }
+
+  &.desc {
+    background-image: url(/assets/admin/arrow_down.png);  
+  }
+  
+  &.reboot {
+    background-image: url(/assets/admin/arrow_refresh.png);
+  }
+
+  &.waiting {
+    background-image: url(/assets/admin/loading_16.gif);
+  }
+
+  &.toggle_closed, &.toggle {
+    background-image: url(/assets/admin/toggle_open.png);
+  }
+
+  &.toggle_open {
+    background-image: url(/assets/admin/toggle_closed.png);
+  }
+
+  &.unlocked {
+    background-image: url(/assets/admin/lock_open.png);
+  }  
+  
+  &.locked {
+    background-image: url(/assets/admin/lock.png);
+  }
+  
+  &.logout {
+    background-image: url(/assets/admin/door_out.png);
+  }
+  
+  &.public {
+    background-image: url(/assets/admin/house.png);
+  }
+  
+  &.download {
+    background-image: url(/assets/admin/attach_down.png);
+  }
+  
+  &.statistics {
+    background-image: url(/assets/admin/chart_bar.png);
+  }  
+}

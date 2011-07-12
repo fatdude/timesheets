@@ -1,0 +1,68 @@
+%h2 Client details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Name
+    .value
+      = @client.name
+  .attribute
+    %p.name
+      %strong Phone
+    .value
+      = @client.phone
+  .attribute
+    %p.name
+      %strong Fax
+    .value
+      = @client.fax
+  .attribute
+    %p.name
+      %strong Email
+    .value
+      = @client.email
+  .attribute
+    %p.name
+      %strong Website
+    .value
+      = @client.website
+  .attribute
+    %p.name
+      %strong Address1
+    .value
+      = @client.address1
+  .attribute
+    %p.name
+      %strong Address2
+    .value
+      = @client.address2
+  .attribute
+    %p.name
+      %strong City
+    .value
+      = @client.city
+  .attribute
+    %p.name
+      %strong County
+    .value
+      = @client.county
+  .attribute
+    %p.name
+      %strong Postcode
+    .value
+      = @client.postcode
+  .attribute
+    %p.name
+      %strong Rate
+    .value
+      = @client.rate
+  .attribute
+    %p.name
+      %strong Code
+    .value
+      = @client.code
+
+%p.controls
+  = link_to('Edit', edit_client_path(@client), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @client, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

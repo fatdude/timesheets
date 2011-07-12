@@ -1,0 +1,53 @@
+%h2 Invoice details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Client
+    .value
+      = @invoice.client
+  .attribute
+    %p.name
+      %strong Paid at
+    .value
+      = @invoice.paid_at
+  .attribute
+    %p.name
+      %strong Sent at
+    .value
+      = @invoice.sent_at
+  .attribute
+    %p.name
+      %strong From
+    .value
+      = @invoice.from
+  .attribute
+    %p.name
+      %strong To
+    .value
+      = @invoice.to
+  .attribute
+    %p.name
+      %strong Total
+    .value
+      = @invoice.total
+  .attribute
+    %p.name
+      %strong Vat
+    .value
+      = @invoice.vat
+  .attribute
+    %p.name
+      %strong Flat rate
+    .value
+      = @invoice.flat_rate
+  .attribute
+    %p.name
+      %strong Code
+    .value
+      = @invoice.code
+
+%p.controls
+  = link_to('Edit', edit_invoice_path(@invoice), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @invoice, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

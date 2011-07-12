@@ -1,0 +1,43 @@
+%h2 Contacts
+%p
+  = link_to('New contact', new_contact_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Name
+      %th Position
+      %th Main
+      %th Phone
+      %th Mobile
+      %th Skype
+      %th Email
+      %th Client
+      %th
+      %th
+      %th
+  %tbody
+    - @contacts.each do |contact|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = contact.name
+        %td
+          = contact.position
+        %td
+          = contact.main
+        %td
+          = contact.phone
+        %td
+          = contact.mobile
+        %td
+          = contact.skype
+        %td
+          = contact.email
+        %td
+          = contact.client
+        %td.has_icon
+          = link_to('Show', contact, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_contact_path(contact), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', contact, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')

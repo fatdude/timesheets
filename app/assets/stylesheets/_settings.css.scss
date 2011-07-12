@@ -1,0 +1,118 @@
+// This file must be imported before loading html5-boilerplate
+
+@import 'compass';
+
+$base-font-family: unquote('sans-serif');  // default font-family
+
+$base-font-size: 13px;  // default font-size for YUI fonts
+
+$base-line-height: 1.231;  // default line-height for YUI fonts
+
+$font-color: #444;
+
+$link-color: #607890;
+
+$link-hover-color: #036;
+
+$link-active-color: #607890;
+
+$link-visited-color: #607890;
+
+$selected-font-color: #fff;  // color for selected text
+
+$selected-background-color: #ff5E99;  // bg-color for selected text
+
+$list-left-margin: 2em;  // left margin for ul an ol
+
+// General
+$body_background: #333;
+$user_bar_background: #121212;
+$user_bar_colour: #eee;
+$user_bar_border_colour: #666;
+$header_background: #121212 url(/assets/admin/ui-bg_gloss-wave_16_121212_500x100.png) 50% top repeat-x; 
+$header_colour: white;
+$footer_background: #121212;
+$footer_colour: white;
+$content_background: white;
+$content_colour: #121212;
+$content_border_colour: #666;
+$nav_highlighted_background: white;
+$nav_highlighted_colour: #121212;
+$nav_highlighted_border_colour: $content_border_colour;
+$nav_background: #121212;
+$nav_colour: #999;
+$nav_border_colour: #666;
+$nav_hover_background: #666;
+$nav_hover_colour: white;
+$nav_hover_border_colour: $nav_border_colour;
+$logo: '/images/admin/logo.png';
+$logo_height: 180px;
+$logo_width: 222px;
+$error_border: red;
+$error_content: white;
+
+// Links
+$link_normal: #222;
+$link_hover: #666;
+$link_active: $link_normal;
+$link_focus: $link_normal;
+$link_visited: $link_normal;
+$link_normal_dark_background: #eee;
+$link_hover_dark_background: white;
+$link_active_dark_background: $link_normal_dark_background;
+$link_focus_dark_background: $link_normal_dark_background;
+$link_visited_dark_background: $link_normal_dark_background;
+
+// Tables
+$table_even_background: #616161;
+$table_even_colour: #eee;
+$table_odd_background: white;
+$table_odd_colour: #121212;
+
+// Buttons
+$button_top: #666;
+$button_bottom: #121212;
+$button_colour: #eee;
+$button_border: #222;
+$button_hover_top: #777;
+$button_hover_bottom: #141414;
+$button_hover_colour: $button_colour;
+$button_hover_border: $button_border;
+$button_down_top: $button_bottom;
+$button_down_bottom: $button_top;
+$button_down_colour: $button_colour;
+$button_down_border: $button_border;
+
+// Fancy buttons
+//$fb-gradient-style: matte;
+// Select from glossy (default), matte, or custom user defined gradient styles.
+$fb-color: #333;
+// Button base color. Default is #444.
+//$fb-radius
+// Button border radius. Default is 6px
+$fb-font-size: inherit;
+// Button font size. Default is 18px.
+//$fb-line-height
+// Button line height. Default is 1.2em.
+//$fb-font-weight
+// Button font-weight. Default is bold.
+//$fb-border-width
+// Button border width. Default is 1px
+//$fb-light-text
+// If button is dark it will get a light text color from this setting. Default is #fff.
+//$fb-dark-text
+// If button is light it will get a dark text color from this setting. Default is #222.
+//$fb-image-path
+// The path image to be used if the browser doesn't see gradients. Default is image-url("button_bg.png")
+//$fb-allow-disabled
+// Outputs a set of disabled styles for buttons that have the class "disabled" or match the attribute ":disabled". Default is false.
+
+// Dimensions
+$form_width: 836px;
+$input_width: $form_width - 12px;
+$textarea_width: $form_width - 12px;
+$pop_up_form_width: 410px;
+$pop_up_input_width: $pop_up_form_width - 12px;
+$pop_up_textarea_width: $pop_up_form_width - 12px;
+$min_content_height: 560px;
+$min_content_width: 855px;

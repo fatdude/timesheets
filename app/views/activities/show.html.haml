@@ -1,0 +1,38 @@
+%h2 Activity details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Rate
+    .value
+      = @activity.rate
+  .attribute
+    %p.name
+      %strong Description
+    .value
+      = @activity.description
+  .attribute
+    %p.name
+      %strong Hours
+    .value
+      = @activity.hours
+  .attribute
+    %p.name
+      %strong Invoice
+    .value
+      = @activity.invoice
+  .attribute
+    %p.name
+      %strong Date
+    .value
+      = @activity.date
+  .attribute
+    %p.name
+      %strong Project
+    .value
+      = @activity.project
+
+%p.controls
+  = link_to('Edit', edit_activity_path(@activity), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @activity, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

@@ -1,127 +1,83 @@
 class InvoicesController < ApplicationController
   # GET /invoices
-  # GET /invoices.xml
+  # GET /invoices.json
   def index
-    @filter = InvoiceFilter.new(params[:invoice_filter])
-
-    if params[:client_id]
-      @client = Client.find params[:client_id]
-      @invoices = @client.invoices.paid_status(@filter.paid).sent_status(@filter.sent).between(@filter.date_from, @filter.date_to).all
-    else
-      @invoices = Invoice.paid_status(@filter.paid).sent_status(@filter.sent).between(@filter.date_from, @filter.date_to).by_client(@filter.client_id).all
-    end
+    @invoices = Invoice.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @invoices }
+      format.json { render json: @invoices }
     end
   end
 
   # GET /invoices/1
-  # GET /invoices/1.xml
+  # GET /invoices/1.json
   def show
-    @invoice = Invoice.includes([:activities, :client]).find_by_code(params[:id].upcase)
+    @invoice = Invoice.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @invoice }      
-      format.pdf do
-        render :pdf => 'test',
-               :layout => 'pdf.html',
-               :show_as_html => !params[:debug].blank?,
-               :lowquality => false
-      end
+      format.json { render json: @invoice }
     end
   end
 
   # GET /invoices/new
-  # GET /invoices/new.xml
+  # GET /invoices/new.json
   def new
-    @client = Client.find params[:client_id] if params[:client_id]
     @invoice = Invoice.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @invoice }
-      format.js { render :format => :html, :layout => false }
+      format.json { render json: @invoice }
     end
   end
 
   # GET /invoices/1/edit
   def edit
-    @invoice = Invoice.editable.find_by_code(params[:id].upcase)
-
-    if @invoice
-      respond_to do |format|
-        format.html
-        format.js { render :format => :html, :layout => false }
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to(invoices_url, :error => "Sorry, couldn't find that invoice") }
-      end
-    end
+    @invoice = Invoice.find(params[:id])
   end
 
   # POST /invoices
-  # POST /invoices.xml
+  # POST /invoices.json
   def create
-    client_id = params[:client_id] || params[:invoice][:client_id]
-    @client = Client.find client_id
-    @invoice = @client.invoices.new(params[:invoice])
+    @invoice = Invoice.new(params[:invoice])
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to(@invoice, :notice => 'Invoice was successfully created.') }
-        format.xml  { render :xml => @invoice, :status => :created, :location => @invoice }
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.json { render json: @invoice, status: :created, location: @invoice }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /invoices/1
-  # PUT /invoices/1.xml
+  # PUT /invoices/1.json
   def update
-    @invoice = Invoice.includes(:activities).find_by_code(params[:id].upcase)
+    @invoice = Invoice.find(params[:id])
 
-    if @invoice
-      respond_to do |format|
-        if @invoice.update_attributes(params[:invoice])
-          format.html { redirect_to(@invoice, :notice => 'Invoice was successfully updated.') }
-          format.xml  { head :ok }
-          format.js
-        else
-          format.html { render :action => "edit" }
-          format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
-          format.js
-        end
-      end
-    else
-      respond_to do |format|
-        format.html { redirect_to(invoices_url, :error => "Sorry, couldn't find that invoice") }
+    respond_to do |format|
+      if @invoice.update_attributes(params[:invoice])
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /invoices/1
-  # DELETE /invoices/1.xml
+  # DELETE /invoices/1.json
   def destroy
-    @invoice = Invoice.unsent.find_by_code(params[:id].upcase)
-
-    if @invoice
-      @invoice.destroy
-      flash[:notice] = "Invoice has been removed"
-    else
-      flash[:error] = "Sorry, couldn't find that invoice"
-    end
+    @invoice = Invoice.find(params[:id])
+    @invoice.destroy
 
     respond_to do |format|
-      format.html { redirect_to(invoices_url) }
-      format.xml  { head :ok }
-      format.js
+      format.html { redirect_to invoices_url }
+      format.json { head :ok }
     end
   end
 end
-

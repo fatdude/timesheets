@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class ContactsControllerTest < ActionController::TestCase
+  setup do
+    @contact = contacts(:one)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -14,30 +18,30 @@ class ContactsControllerTest < ActionController::TestCase
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post :create, :contact => contacts(:one).attributes
+      post :create, contact: @contact.attributes
     end
 
     assert_redirected_to contact_path(assigns(:contact))
   end
 
   test "should show contact" do
-    get :show, :id => contacts(:one).to_param
+    get :show, id: @contact.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => contacts(:one).to_param
+    get :edit, id: @contact.to_param
     assert_response :success
   end
 
   test "should update contact" do
-    put :update, :id => contacts(:one).to_param, :contact => contacts(:one).attributes
+    put :update, id: @contact.to_param, contact: @contact.attributes
     assert_redirected_to contact_path(assigns(:contact))
   end
 
   test "should destroy contact" do
     assert_difference('Contact.count', -1) do
-      delete :destroy, :id => contacts(:one).to_param
+      delete :destroy, id: @contact.to_param
     end
 
     assert_redirected_to contacts_path

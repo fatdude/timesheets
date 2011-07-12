@@ -1,0 +1,37 @@
+%h2 Activities
+%p
+  = link_to('New activity', new_activity_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Rate
+      %th Description
+      %th Hours
+      %th Invoice
+      %th Date
+      %th Project
+      %th
+      %th
+      %th
+  %tbody
+    - @activities.each do |activity|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = activity.rate
+        %td
+          = activity.description
+        %td
+          = activity.hours
+        %td
+          = activity.invoice
+        %td
+          = activity.date
+        %td
+          = activity.project
+        %td.has_icon
+          = link_to('Show', activity, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_activity_path(activity), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', activity, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')

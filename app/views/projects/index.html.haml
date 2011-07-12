@@ -1,0 +1,28 @@
+%h2 Projects
+%p
+  = link_to('New project', new_project_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Client
+      %th Title
+      %th Description
+      %th
+      %th
+      %th
+  %tbody
+    - @projects.each do |project|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = project.client
+        %td
+          = project.title
+        %td
+          = project.description
+        %td.has_icon
+          = link_to('Show', project, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_project_path(project), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')
