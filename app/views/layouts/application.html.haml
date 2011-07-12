@@ -10,7 +10,22 @@
     #container
       %header#header
         = render "layouts/header"
-        
+
+      %nav.main
+        %ul
+          %li{:class => root_page_of?(:settings) ? 'selected' : ''}
+            = link_to('Settings', edit_settings_path)
+          %li{:class => root_page_of?(:clients) ? 'selected' : ''}
+            = link_to('Clients', clients_path)
+          %li{:class => root_page_of?(:projects) ? 'selected' : ''}
+            = link_to('Projects', projects_path)
+          %li{:class => root_page_of?(:activities) ? 'selected' : ''}
+            = link_to('Activities', activities_path)
+          %li{:class => root_page_of?(:invoices) ? 'selected' : ''}
+            = link_to('Invoices', invoices_path)
+          %li{:class => root_page_of?(:contacts) ? 'selected' : ''}
+            = link_to('Contacts', contacts_path)
+            
       #main{ :role => 'main' }
         = render "layouts/flashes"
         = yield

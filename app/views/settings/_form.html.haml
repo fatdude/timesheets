@@ -1,0 +1,9 @@
+= simple_form_for(@setting, :url => settings_path) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :vat_percent, :label => 'VAT (%)'
+    = f.input :flat_rate_percent, :label => 'Flat rate VAT (%)'
+
+  .actions
+    = f.button :submit

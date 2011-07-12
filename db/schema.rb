@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712014141) do
+ActiveRecord::Schema.define(:version => 20110712023121) do
 
   create_table "activities", :force => true do |t|
     t.decimal  "rate"
@@ -92,5 +92,12 @@ ActiveRecord::Schema.define(:version => 20110712014141) do
   end
 
   add_index "projects", ["client_id"], :name => "index_projects_on_client_id"
+
+  create_table "settings", :force => true do |t|
+    t.float    "vat"
+    t.float    "flat_rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -1,5 +1,5 @@
 Timesheets::Application.routes.draw do
-  resource :configuration
+  resource :settings, :only => [:edit, :update]
 
   resources :projects
 
