@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712023121) do
+ActiveRecord::Schema.define(:version => 20110712031839) do
 
   create_table "activities", :force => true do |t|
     t.decimal  "rate"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110712023121) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "day_rate"
   end
 
   create_table "configurations", :force => true do |t|

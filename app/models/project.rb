@@ -4,4 +4,8 @@ class Project < ActiveRecord::Base
   
   # Validations
   validates :title, :presence => true
+  
+  def to_s
+    self.title
+  end
 end

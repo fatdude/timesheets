@@ -2,12 +2,10 @@
   = f.error_notification
 
   .inputs
-    = f.input :rate
     = f.input :description
     = f.input :hours
-    = f.association :invoice
     = f.input :date
-    = f.association :project
+    = f.association :project, :include_blank => false
 
   .actions
     = f.button :submit
