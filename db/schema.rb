@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712031839) do
+ActiveRecord::Schema.define(:version => 20110713002331) do
 
   create_table "activities", :force => true do |t|
     t.decimal  "rate"
@@ -42,15 +42,6 @@ ActiveRecord::Schema.define(:version => 20110712031839) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "day_rate"
-  end
-
-  create_table "configurations", :force => true do |t|
-    t.float    "vat_percent"
-    t.float    "vat"
-    t.float    "flat_rate_percent"
-    t.float    "flat_rate"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
@@ -93,6 +84,18 @@ ActiveRecord::Schema.define(:version => 20110712031839) do
   end
 
   add_index "projects", ["client_id"], :name => "index_projects_on_client_id"
+
+  create_table "rates", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "value"
+    t.integer  "client_id"
+    t.boolean  "daily"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["client_id"], :name => "index_rates_on_client_id"
 
   create_table "settings", :force => true do |t|
     t.float    "vat"

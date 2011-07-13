@@ -1,13 +1,20 @@
 Timesheets::Application.routes.draw do
+
   resource :settings, :only => [:edit, :update]
 
-  resources :projects
+  resources :projects, :except => [:new, :create]
 
   resources :invoices
 
-  resources :contacts
+  resources :contacts, :except => [:new, :create]
+  
+  resources :rates, :except => [:new, :create]
 
-  resources :clients
+  resources :clients do
+    resources :rates, :only => [:new, :create]
+    resources :contacts, :only => [:new, :create]
+    resources :projects, :only => [:new, :create]
+  end
 
   resources :activities
 

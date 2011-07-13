@@ -9,8 +9,11 @@
       %th Rate
       %th Code
       %th
+      %th 
       %th
       %th
+      %th 
+      %th 
   %tbody
     - @clients.each do |client|
       %tr{:class => cycle('odd', 'even')}
@@ -20,6 +23,12 @@
           = client.rate
         %td
           = client.code
+        %td 
+          = link_to('New rate', new_client_rate_path(client))
+        %td 
+          = link_to('New contact', new_client_contact_path(client))
+        %td 
+          = link_to('New project', new_client_project_path(client))
         %td.has_icon
           = link_to('Show', client, :class => 'icon show')
         %td.has_icon

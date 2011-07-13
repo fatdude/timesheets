@@ -95,10 +95,10 @@ form.simple_form {
       }      
     }
     
-    &.check_boxes {
+    &.check_boxes, &.radio {
       margin-bottom: 0.5em;
       
-      label.collection_check_boxes {
+      label.collection_check_boxes, label.collection_radio {
         @include inline-block;
         vertical-align: middle;
       }

@@ -1,0 +1,11 @@
+= simple_form_for([@client, @rate]) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :name
+    = f.input :description
+    = f.input :value
+    = f.input :daily, :as => :radio, :collection => Rate.types, :label => 'Rate type'
+
+  .actions
+    = f.button :submit

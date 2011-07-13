@@ -1,4 +1,9 @@
 class Client < ActiveRecord::Base
+  # Relationships
+  has_many :rates, :dependent => :destroy
+  has_many :contacts, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  
   # Validations
   validates :name, :presence => true
   validates :code, :presence => true

@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
+    @client = Client.find(params[:client_id])
     @project = Project.new
 
     respond_to do |format|
@@ -39,8 +40,9 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   # POST /projects.json
-  def create
-    @project = Project.new(params[:project])
+  def create  
+    @client = Client.find(params[:client_id])
+    @project = @client.projects.new(params[:project])
 
     respond_to do |format|
       if @project.save

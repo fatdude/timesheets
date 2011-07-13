@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   # GET /contacts/new.json
   def new
+    @client = Client.find(params[:client_id])
     @contact = Contact.new
 
     respond_to do |format|
@@ -40,7 +41,8 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(params[:contact])
+    @client = Client.find(params[:client_id])
+    @contact = @client.contacts.new(params[:contact])
 
     respond_to do |format|
       if @contact.save

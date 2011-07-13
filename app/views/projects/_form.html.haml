@@ -1,8 +1,7 @@
-= simple_form_for(@project) do |f|
+= simple_form_for([@client, @project]) do |f|
   = f.error_notification
 
   .inputs
-    = f.association :client
     = f.input :title
     = f.input :description
 

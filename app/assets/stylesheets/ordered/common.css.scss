@@ -1,6 +1,7 @@
 @import '../settings';
 @import 'compass';
 @import "html5-boilerplate";
+@import 'blueprint';
 
 body, select, input, textarea {
   color: $font-color;
@@ -43,7 +44,9 @@ input:invalid, textarea:invalid {
 // Add your own custom styles below
 //-----------------------------------
 
-body {}
+body {
+  @include blueprint-typography();
+}
 
 #container {}
 

@@ -1,0 +1,33 @@
+%h2 Rate details
+
+.attributes
+  .attribute
+    %p.name
+      %strong Name
+    .value
+      = @rate.name
+  .attribute
+    %p.name
+      %strong Description
+    .value
+      = @rate.description
+  .attribute
+    %p.name
+      %strong Value
+    .value
+      = @rate.value
+  .attribute
+    %p.name
+      %strong Client
+    .value
+      = @rate.client
+  .attribute
+    %p.name
+      %strong Daily
+    .value
+      = @rate.daily
+
+%p.controls
+  = link_to('Edit', edit_rate_path(@rate), :class => 'icon_left edit')
+  |  
+  = link_to('Delete', @rate, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_left delete')

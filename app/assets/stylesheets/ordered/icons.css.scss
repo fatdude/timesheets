@@ -4,7 +4,7 @@
   @include inline-block;
   height: 16px;
   width: 16px;
-  @include replace-text('/assets/admin/ruby.png');
+  @include replace-text('/assets/ruby.png');
   vertical-align: middle;
   cursor: pointer;
   background: {
@@ -43,76 +43,76 @@ input[type=submit], button {
 .icon, .icon_left, .icon_right {
 
   &.edit {
-    background-image: url(/assets/admin/pencil.png);
+    background-image: url(/assets/pencil.png);
   }
   
   &.add {
-    background-image: url(/assets/admin/add.png);
+    background-image: url(/assets/add.png);
   }
 
   &.delete {
-    background-image: url(/assets/admin/delete.png);
+    background-image: url(/assets/delete.png);
   }
 
   &.show {
-    background-image: url(/assets/admin/zoom.png);
+    background-image: url(/assets/zoom.png);
   }
 
   &.yes {
-    background-image: url(/assets/admin/tick.png);
+    background-image: url(/assets/tick.png);
     cursor: default;
   }
 
   &.no {
-    background-image: url(/assets/admin/cross.png);
+    background-image: url(/assets/cross.png);
     cursor: default;
   }
 
   &.asc {
-    background-image: url(/assets/admin/arrow_up.png);
+    background-image: url(/assets/arrow_up.png);
   }
 
   &.desc {
-    background-image: url(/assets/admin/arrow_down.png);  
+    background-image: url(/assets/arrow_down.png);  
   }
   
   &.reboot {
-    background-image: url(/assets/admin/arrow_refresh.png);
+    background-image: url(/assets/arrow_refresh.png);
   }
 
   &.waiting {
-    background-image: url(/assets/admin/loading_16.gif);
+    background-image: url(/assets/loading_16.gif);
   }
 
   &.toggle_closed, &.toggle {
-    background-image: url(/assets/admin/toggle_open.png);
+    background-image: url(/assets/toggle_open.png);
   }
 
   &.toggle_open {
-    background-image: url(/assets/admin/toggle_closed.png);
+    background-image: url(/assets/toggle_closed.png);
   }
 
   &.unlocked {
-    background-image: url(/assets/admin/lock_open.png);
+    background-image: url(/assets/lock_open.png);
   }  
   
   &.locked {
-    background-image: url(/assets/admin/lock.png);
+    background-image: url(/assets/lock.png);
   }
   
   &.logout {
-    background-image: url(/assets/admin/door_out.png);
+    background-image: url(/assets/door_out.png);
   }
   
   &.public {
-    background-image: url(/assets/admin/house.png);
+    background-image: url(/assets/house.png);
   }
   
   &.download {
-    background-image: url(/assets/admin/attach_down.png);
+    background-image: url(/assets/attach_down.png);
   }
   
   &.statistics {
-    background-image: url(/assets/admin/chart_bar.png);
+    background-image: url(/assets/chart_bar.png);
   }  
 }

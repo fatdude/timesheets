@@ -1,0 +1,34 @@
+%h2 Rates
+%p
+  = link_to('New rate', new_rate_path, :class => 'icon_left add')
+  
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Value
+      %th Client
+      %th Daily
+      %th
+      %th
+      %th
+  %tbody
+    - @rates.each do |rate|
+      %tr{:class => cycle('odd', 'even')}
+        %td
+          = rate.name
+        %td
+          = rate.description
+        %td
+          = rate.value
+        %td
+          = rate.client
+        %td
+          = rate.daily
+        %td.has_icon
+          = link_to('Show', rate, :class => 'icon show')
+        %td.has_icon
+          = link_to('Edit', edit_rate_path(rate), :class => 'icon edit')
+        %td.has_icon
+          = link_to('Destroy', rate, :confirm => 'Are you sure?', :method => :delete, :class => 'icon delete')
